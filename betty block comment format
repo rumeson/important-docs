@@ -1,0 +1,30 @@
+How to add extractable documentation to your source files
+---------------------------------------------------------
+
+The format of the block comment is like this:
+
+/**
+ * function_name(:)? (- short description)?
+(* @parameterx: (description of parameter x)?)*
+(* a blank line)?
+ * (Description:)? (Description of function)?
+ * (section header: (section description)? )*
+(*)?*/
+
+The short function description cannot be multiline, but the other
+descriptions can be (and they can contain blank lines). Avoid putting a
+spurious blank line after the function name, or else the description will
+be repeated!
+
+All descriptive text is further processed, scanning for the following special
+patterns, which are highlighted appropriately.
+
+'funcname()' - function
+'$ENVVAR' - environment variable
+'&struct_name' - name of a structure (up to two words including 'struct')
+'@parameter' - name of a parameter
+'%CONST' - name of a constant.
+
+Take a look around the source tree for examples.
+
+
